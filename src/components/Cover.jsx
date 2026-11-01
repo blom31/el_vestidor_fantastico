@@ -44,7 +44,7 @@ export default function Cover({ onExploreSpread, onSelectChapter }) {
 
         {/* Masthead */}
         <div className={styles.mastheadWrapper}>
-          <h1 className={styles.mastheadTitle}>El Vestidor</h1>
+          <h1 className={styles.mastheadTitle}>El Vestidor Fantástico</h1>
           <p className={styles.subTitle}>
             MONOGRAFÍA DE ALTA COSTURA & ARMADURAS DE FANTASÍA
           </p>

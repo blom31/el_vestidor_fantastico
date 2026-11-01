@@ -15,12 +15,12 @@ export default function Header({
       <div className={styles.brandArea} onClick={() => onNavigate('cover')}>
         <img
           src="https://lh3.googleusercontent.com/aida/AEtjO1U4m-b6u83X51137svMms5Ei23oT1zhzUd23NJkYAXZxc36FHzazW2RecaqrvFcjSPwRoPV48NP21xN82bx7Tkj2o1xMRg5vJpW3CR7NoHXda54vTpD4Ig-4l2a9lj3TsouZNZoJWqPxTYeIgmy4w1NqjesWkmUUmrINHfOsQ4LfvtxbhH0NdxZqgLtnyHdNLDpbdVYnJqeSmfa7kJHwohnMT3fMJU6LrhoaXgXkN4VkA"
-          alt="Atelier Aurelia Crest"
+          alt="."
           className={styles.crestLogo}
         />
         <div className={styles.brandText}>
-          <span className={styles.brandTitle}>El Vestidor</span>
-          <span className={styles.brandTagline}>Atelier Aurelia • Vol. IV</span>
+          <span className={styles.brandTitle}>El Vestidor Fantástico</span>
+          {/* <span className={styles.brandTagline}>Atelier Aurelia • Vol. IV</span> */}
         </div>
       </div>
 

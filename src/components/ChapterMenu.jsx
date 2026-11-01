@@ -18,7 +18,7 @@ export default function ChapterMenu({ activeChapterId, onSelectChapter }) {
         <div className={styles.pageLeft}>
           <div className={styles.pageFolioTop}>
             <span>FOLIO 02</span>
-            <span>EL VESTIDOR • ATELIER AURELIA</span>
+            <span>EL VESTIDOR FANTÁSTICO</span>
           </div>
 
           <div className={styles.editorialContent}>
