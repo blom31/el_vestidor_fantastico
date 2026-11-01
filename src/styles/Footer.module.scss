@@ -1,0 +1,151 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.editorialFooter {
+  background: $bg-graphite-dark;
+  border-top: 1px solid rgba(233, 193, 118, 0.2);
+  padding: 4.5rem 2rem 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footerWrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footerColumns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3rem;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .colBrand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .brandName {
+      font-family: $font-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.15em;
+      color: $gold-champagne;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .brandDescription {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0;
+    }
+
+    .monographNote {
+      font-family: $font-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: $gold-burnished;
+      text-transform: uppercase;
+    }
+  }
+
+  .colNavigation {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .colTitle {
+      font-family: $font-serif;
+      font-size: 0.8125rem;
+      letter-spacing: 0.25em;
+      color: $gold-champagne;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .linksList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        text-align: left;
+        color: $text-muted;
+        font-size: 0.8125rem;
+        cursor: pointer;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $gold-champagne-light;
+        }
+      }
+    }
+  }
+
+  .colColophon {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .colophonCard {
+      background: rgba(22, 23, 29, 0.7);
+      border: 1px solid rgba(233, 193, 118, 0.15);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .colophonTitle {
+        font-family: $font-serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        color: $gold-champagne;
+        text-transform: uppercase;
+      }
+
+      .colophonText {
+        font-size: 0.8125rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.bottomFolioBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(233, 193, 118, 0.12);
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  color: $text-dim;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .folioVol {
+    font-family: $font-serif;
+    letter-spacing: 0.2em;
+    color: $gold-champagne;
+  }
+}

@@ -1,0 +1,66 @@
+// ==========================================
+// EL VESTIDOR / ATELIER AURELIA - DESIGN TOKENS
+// ==========================================
+
+// --- Paleta Grafito & Carbón ---
+$bg-void: #0a0b0d;
+$bg-graphite-dark: #101114;
+$bg-graphite-base: #16171b;
+$bg-graphite-surface: #1d1e23;
+$bg-graphite-elevated: #26272e;
+$bg-graphite-border: #32333c;
+$bg-graphite-highlight: #3f404b;
+
+// --- Paleta Oro Champagne & Bronce ---
+$gold-champagne-light: #fef0c7;
+$gold-champagne: #e9c176;
+$gold-champagne-hover: #fedb7a;
+$gold-burnished: #c59a48;
+$gold-antique: #947230;
+$gold-shadow: #3b2c0b;
+$gold-sheen-glow: rgba(233, 193, 118, 0.25);
+$gold-sheen-intense: rgba(233, 193, 118, 0.5);
+$gold-tint-subtle: rgba(233, 193, 118, 0.06);
+$gold-tint-medium: rgba(233, 193, 118, 0.12);
+
+// --- Acentos Editoriales ---
+$accent-crimson: #872023;
+$accent-crimson-light: #b03034;
+$accent-platinum: #c5c7d0;
+$accent-bone: #f7f5f0;
+
+// --- Texto & Contraste ---
+$text-primary: #f6f4ee;
+$text-secondary: #d3ccc0;
+$text-muted: #9c9689;
+$text-dim: #6e695e;
+$text-gold: #e9c176;
+
+// --- Tipografías ---
+$font-serif: 'Playfair Display', 'Didot', Georgia, serif;
+$font-display: 'Cinzel', 'Playfair Display', serif;
+$font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// --- Sombras & Resplandores ---
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+$shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
+$shadow-gold: 0 0 24px rgba(233, 193, 118, 0.22);
+$shadow-gold-bright: 0 0 35px rgba(233, 193, 118, 0.4);
+
+// --- Transiciones ---
+$transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+// --- Bordes & Radios ---
+$radius-sm: 2px;
+$radius-md: 6px;
+$radius-lg: 12px;
+$radius-pill: 9999px;
+
+// --- Breakpoints ---
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;

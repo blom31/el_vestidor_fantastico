@@ -1,0 +1,297 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.coverSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 3rem;
+  overflow: hidden;
+
+  @include respond-to(tablet) {
+    padding: 5rem 1rem 2rem;
+  }
+}
+
+// Background photography with subtle vignette & luxury overlay
+.coverBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  .backdropImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: brightness(0.65) contrast(1.15);
+    transform: scale(1.03);
+    transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(16, 17, 20, 0.4) 0%, rgba(10, 11, 13, 0.88) 85%),
+                linear-gradient(to bottom, rgba(10, 11, 13, 0.6) 0%, transparent 20%, rgba(10, 11, 13, 0.95) 100%);
+  }
+}
+
+// Magazine Cover Frame (mimicking physical luxury print)
+.coverPlate {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 820px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 3rem;
+  border: 1px solid rgba(233, 193, 118, 0.3);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.85),
+    inset 0 0 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  background: linear-gradient(145deg, rgba(22, 23, 27, 0.35) 0%, rgba(10, 11, 13, 0.65) 100%);
+  backdrop-filter: blur(4px);
+
+  @include respond-to(tablet) {
+    min-height: 700px;
+    padding: 1.5rem;
+  }
+}
+
+// Top Bar Header on Cover
+.coverTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(233, 193, 118, 0.25);
+  padding-bottom: 1rem;
+
+  .issueBadge {
+    display: flex;
+    flex-direction: column;
+
+    .volText {
+      font-family: $font-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: $gold-champagne;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .seasonText {
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      color: $text-muted;
+      text-transform: uppercase;
+    }
+  }
+
+  .crestIcon {
+    width: 28px;
+    height: 28px;
+    color: $gold-champagne;
+    opacity: 0.85;
+  }
+
+  .barcodeArea {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .priceTag {
+      font-family: $font-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: $text-secondary;
+    }
+
+    .barcodeLines {
+      display: flex;
+      gap: 2px;
+      height: 18px;
+      opacity: 0.6;
+
+      span {
+        display: block;
+        height: 100%;
+        background-color: $gold-champagne;
+        width: 1px;
+
+        &:nth-child(2n) { width: 2px; }
+        &:nth-child(3n) { width: 3px; }
+      }
+    }
+  }
+}
+
+// Masthead: EL VESTIDOR
+.mastheadWrapper {
+  text-align: center;
+  margin: 1.5rem 0;
+
+  .mastheadTitle {
+    font-family: $font-serif;
+    font-size: clamp(3.2rem, 9vw, 7.5rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin: 0;
+    @include gold-foil-text;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .subTitle {
+    font-family: $font-sans;
+    font-size: clamp(0.7rem, 1.4vw, 0.95rem);
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: $text-secondary;
+    margin-top: 0.75rem;
+    font-weight: 400;
+  }
+}
+
+// Center Feature Layout
+.coverBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: auto;
+  padding-bottom: 2rem;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.leftHeadlines {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .coverHeadlineItem {
+    border-left: 2px solid $gold-champagne;
+    padding-left: 1rem;
+
+    .headlineNumber {
+      font-family: $font-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: $gold-champagne;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .headlineTitle {
+      font-family: $font-serif;
+      font-size: 1.05rem;
+      color: $text-primary;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.2rem;
+    }
+
+    .headlineSnippet {
+      font-size: 0.8125rem;
+      color: $text-muted;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+}
+
+.rightFeature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 0.75rem;
+
+  @include respond-to(tablet) {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .specimenCode {
+    font-family: $font-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: $gold-champagne;
+    text-transform: uppercase;
+    background: rgba(30, 31, 38, 0.7);
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgba(233, 193, 118, 0.3);
+  }
+
+  .mainHeroName {
+    font-family: $font-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    color: $text-primary;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .heroDescriptor {
+    font-size: 0.9375rem;
+    color: $gold-champagne-light;
+    font-style: italic;
+    max-width: 380px;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// Floating CTA Button
+.floatingCtaContainer {
+  position: absolute;
+  bottom: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.openSpreadBtn {
+  @include button-editorial;
+  background: linear-gradient(135deg, #e9c176 0%, #d8ab5b 60%, #b88d37 100%);
+  color: #121316;
+  font-weight: 700;
+  padding: 1rem 2.25rem;
+  border-radius: $radius-pill;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(233, 193, 118, 0.45);
+  letter-spacing: 0.22em;
+  gap: 0.75rem;
+  border: 1px solid #fff5d1;
+  transition: all $transition-smooth;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 15px 40px rgba(0, 0, 0, 0.8),
+      0 0 35px rgba(233, 193, 118, 0.7);
+    background: linear-gradient(135deg, #fff2c4 0%, #e9c176 70%, #c59a48 100%);
+  }
+
+  .btnIcon {
+    font-size: 1.1rem;
+    transition: transform $transition-smooth;
+  }
+
+  &:hover .btnIcon {
+    transform: translateY(2px);
+  }
+}

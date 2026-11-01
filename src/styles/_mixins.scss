@@ -1,0 +1,172 @@
+@use 'variables' as *;
+
+// ==========================================
+// MIXINS: EFECTOS EDITORIALES, PLIEGO & GLASS
+// ==========================================
+
+// --- Glassmorphism de Lujo ---
+@mixin glassmorphism($blur: 16px, $bg: rgba(22, 23, 27, 0.78), $border-opacity: 0.18) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(233, 193, 118, $border-opacity);
+}
+
+// --- Bordes Dorados & Resplandor ---
+@mixin gold-border($width: 1px, $with-glow: false) {
+  border: $width solid rgba(233, 193, 118, 0.35);
+  @if $with-glow {
+    box-shadow: 0 0 16px rgba(233, 193, 118, 0.18), inset 0 0 8px rgba(233, 193, 118, 0.08);
+  }
+}
+
+@mixin gold-border-gradient {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to bottom, $bg-graphite-surface, $bg-graphite-dark),
+    linear-gradient(135deg, $gold-champagne-light 0%, $gold-champagne 40%, rgba(148, 114, 48, 0.4) 100%);
+}
+
+// --- Texto con Foil Oro Champagne ---
+@mixin gold-foil-text {
+  background: linear-gradient(135deg, #fff7d6 0%, #e9c176 50%, #c59a48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+// --- Efecto Pliego de Revista (Center Crease & Shadow) ---
+@mixin magazine-pliego {
+  position: relative;
+  background: $bg-graphite-surface;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(233, 193, 118, 0.15);
+  
+  // Pliegue central de encuadernación (spine shadow)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 60px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.35) 35%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(0, 0, 0, 0.35) 65%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 5;
+    opacity: 0.85;
+
+    @media (max-width: $bp-tablet) {
+      display: none;
+    }
+  }
+
+  // Costura dorada central sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(233, 193, 118, 0.25) 15%,
+      rgba(233, 193, 118, 0.25) 85%,
+      transparent
+    );
+    pointer-events: none;
+    z-index: 6;
+
+    @media (max-width: $bp-tablet) {
+      display: none;
+    }
+  }
+}
+
+// --- Etiqueta Folio Editorial ---
+@mixin editorial-folio {
+  font-family: $font-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $gold-champagne;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: $gold-champagne;
+  }
+}
+
+// --- Microinteracción de Botón Editorial ---
+@mixin button-editorial {
+  font-family: $font-sans;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all $transition-smooth;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// --- Scrollbar Personalizado Grafito y Oro ---
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-graphite-dark;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $bg-graphite-highlight;
+    border-radius: $radius-pill;
+    &:hover {
+      background: $gold-burnished;
+    }
+  }
+}
+
+// --- Responsive Mixin ---
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $bp-mobile) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $bp-tablet) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $bp-desktop) { @content; }
+  } @else if $breakpoint == wide {
+    @media (min-width: $bp-wide) { @content; }
+  }
+}
