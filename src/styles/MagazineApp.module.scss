@@ -84,6 +84,20 @@
   cursor: pointer;
   transition: all $transition-smooth;
 
+  @include respond-to(mobile) {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.55rem;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+
+    .soundLabel {
+      display: none;
+    }
+  }
+
   &:hover {
     border-color: $gold-champagne;
     color: $gold-champagne;
@@ -115,6 +129,10 @@
       background: $gold-champagne;
       box-shadow: 0 0 8px $gold-champagne;
       animation: pulseAnim 1.8s infinite ease-in-out;
+
+      @include respond-to(mobile) {
+        display: none;
+      }
     }
   }
 }

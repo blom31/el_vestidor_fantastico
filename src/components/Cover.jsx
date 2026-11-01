@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../styles/Cover.module.scss';
-import { BookOpen, Sparkles, Shield, ChevronDown } from 'lucide-react';
+import { BookOpen, Shield, ChevronDown } from 'lucide-react';
 
-export default function Cover({ onExploreSpread, onSelectChapter }) {
+export default function Cover({ onExploreSpread }) {
   return (
     <section className={styles.coverSection} id="cover">
       {/* Background backdrop with high-couture imagery */}

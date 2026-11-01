@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Footer.module.scss';
-import { Feather, Shield, Sparkles } from 'lucide-react';
+import { Feather } from 'lucide-react';
+
 
 export default function Footer({ onNavigate, onOpenCommission }) {
   return (
@@ -8,7 +9,7 @@ export default function Footer({ onNavigate, onOpenCommission }) {
       <div className={styles.footerWrapper}>
         <div className={styles.footerColumns}>
           <div className={styles.colBrand}>
-            <h3 className={styles.brandName}>El Vestidor</h3>
+            <h3 className={styles.brandName}>El Vestidor Fantástico</h3>
             <p className={styles.brandDescription}>
               Monografía artística de alta costura, armaduras de fantasía ceremonial y sastrería de salón
               para cine de época, exposiciones museísticas y colecciones privadas.
@@ -60,7 +61,7 @@ export default function Footer({ onNavigate, onOpenCommission }) {
             <Feather size={14} className="text-primary" />
             <span className={styles.folioVol}>FOLIO VOL. IV // CATALOGUE RAISONNÉ</span>
           </div>
-          <span>© 2024 Atelier Aurelia — El Vestidor. Todos los derechos reservados.</span>
+          <span>© 2024 Atelier Aurelia — El Vestidor Fantástico. Todos los derechos reservados.</span>
         </div>
       </div>
     </footer>

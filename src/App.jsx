@@ -25,7 +25,6 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
-      const coverEl = document.getElementById('cover');
       const chaptersEl = document.getElementById('chapters');
       const galleryEl = document.getElementById('gallery');
 
@@ -82,7 +81,7 @@ export default function App() {
         try {
           osc.stop();
           osc.disconnect();
-        } catch (e) {
+        } catch {
           // ignore
         }
       });
@@ -132,8 +131,6 @@ export default function App() {
         activeSection={activeSection}
         onNavigate={handleNavigate}
         onOpenCommission={handleOpenCommission}
-        isPlayingSoundscape={isPlayingSoundscape}
-        onToggleSoundscape={toggleSoundscape}
         currentFolio={currentFolio}
       />
 
@@ -141,7 +138,6 @@ export default function App() {
         {/* Cover */}
         <Cover
           onExploreSpread={() => handleNavigate('chapters')}
-          onSelectChapter={handleSelectChapter}
         />
 
         {/* Chapter Menu: Pliego Abierto */}
@@ -188,6 +184,7 @@ export default function App() {
 
       {/* Bespoke Commission Modal */}
       <ContactModal
+        key={quotingSpecimen?.id || activeSpecimenId}
         isOpen={isCommissionOpen}
         onClose={() => setIsCommissionOpen(false)}
         selectedSpecimen={quotingSpecimen || specimensData[activeSpecimenId]}

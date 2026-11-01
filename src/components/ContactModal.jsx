@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/ContactModal.module.scss';
-import { X, CheckCircle2, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, Send, ShieldCheck } from 'lucide-react';
 import { specimensData } from '../data/monographData';
 
 export default function ContactModal({ isOpen, onClose, selectedSpecimen }) {
+  const initialCode = selectedSpecimen
+    ? `${selectedSpecimen.opusCode} — ${selectedSpecimen.title}`
+    : 'OPUS 084 — Valkyrie Sovereign';
+
   const [formData, setFormData] = useState({
     clientName: '',
     email: '',
     deliveryDate: '',
     finishType: 'Pan de Oro 24K & Terciopelo Imperial',
-    specimenCode: selectedSpecimen?.opusCode || 'OPUS 084',
+    specimenCode: initialCode,
     notes: ''
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  useEffect(() => {
-    if (selectedSpecimen) {
-      setFormData((prev) => ({
-        ...prev,
-        specimenCode: `${selectedSpecimen.opusCode} — ${selectedSpecimen.title}`
-      }));
-    }
-  }, [selectedSpecimen]);
 
   if (!isOpen) return null;
 

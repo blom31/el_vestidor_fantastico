@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from '../styles/Header.module.scss';
-import { Volume2, VolumeX, Sparkles, Feather } from 'lucide-react';
+import { Sparkles, Feather } from 'lucide-react';
 
 export default function Header({
   activeSection,
   onNavigate,
   onOpenCommission,
-  isPlayingSoundscape,
-  onToggleSoundscape,
   currentFolio = 'FOLIO 01 / 04'
 }) {
   return (
